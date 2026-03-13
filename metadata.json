@@ -1,0 +1,7 @@
+{
+  "name": "ER & ICU Guide Pro",
+  "description": "A comprehensive, offline-first PWA for ICU & Emergency Nursing, featuring medical calculators, ECG monitoring, drug references, and emergency protocols.",
+  "requestFramePermissions": [
+    "notifications"
+  ]
+}
