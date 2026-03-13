@@ -20,35 +20,35 @@ const SplashScreen: React.FC = () => {
         >
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: [0.5, 1.2, 1], opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            animate={{ scale: [0.5, 1.1, 1], opacity: 1 }}
+            transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
             className="relative"
           >
             <HeartPulse className="w-24 h-24 text-white" />
             <motion.div
-              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+              animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               className="absolute inset-0 bg-white rounded-full -z-10"
             />
           </motion.div>
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mt-8 text-3xl font-bold text-white tracking-wider"
+            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+            className="mt-8 text-3xl font-black text-white tracking-widest uppercase"
           >
             ER & ICU Guide
           </motion.h1>
           <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: 200 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="h-1 bg-white/30 mt-4 rounded-full overflow-hidden"
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: 240, opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
+            className="h-1 bg-white/20 mt-6 rounded-full overflow-hidden relative"
           >
             <motion.div
-              animate={{ x: [-200, 200] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-              className="w-1/2 h-full bg-white"
+              animate={{ x: [-240, 240] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1/2 h-full bg-white shadow-[0_0_15px_rgba(255,255,255,0.5)]"
             />
           </motion.div>
         </motion.div>

@@ -54,6 +54,99 @@ export const medicalData = {
         { item: "Creatinine", range: "0.6-1.2 mg/dL" },
         { item: "Glucose (Fasting)", range: "70-100 mg/dL" }
       ]
+    },
+    calculators: {
+      gcs: {
+        name: "GCS (Glasgow Coma Scale)",
+        categories: [
+          { name: "Eye Opening", options: [{ label: "Spontaneous", score: 4 }, { label: "To Speech", score: 3 }, { label: "To Pain", score: 2 }, { label: "None", score: 1 }] },
+          { name: "Verbal Response", options: [{ label: "Oriented", score: 5 }, { label: "Confused", score: 4 }, { label: "Inappropriate Words", score: 3 }, { label: "Incomprehensible Sounds", score: 2 }, { label: "None", score: 1 }] },
+          { name: "Motor Response", options: [{ label: "Obeys Commands", score: 6 }, { label: "Localizes Pain", score: 5 }, { label: "Withdraws from Pain", score: 4 }, { label: "Abnormal Flexion", score: 3 }, { label: "Abnormal Extension", score: 2 }, { label: "None", score: 1 }] }
+        ]
+      },
+      rass: {
+        name: "RASS (Richmond Agitation-Sedation Scale)",
+        options: [
+          { label: "+4 Combative", score: 4 }, { label: "+3 Very Agitated", score: 3 }, { label: "+2 Agitated", score: 2 }, { label: "+1 Restless", score: 1 },
+          { label: "0 Alert and Calm", score: 0 },
+          { label: "-1 Drowsy", score: -1 }, { label: "-2 Light Sedation", score: -2 }, { label: "-3 Moderate Sedation", score: -3 }, { label: "-4 Deep Sedation", score: -4 }, { label: "-5 Unarousable", score: -5 }
+        ]
+      },
+      ccf: {
+        name: "CCF Scale (Critical Care Functional)",
+        categories: [
+          { name: "Rolling", options: [{ label: "Independent", score: 3 }, { label: "Minimal Assist", score: 2 }, { label: "Moderate Assist", score: 1 }, { label: "Unable", score: 0 }] },
+          { name: "Supine to Sit", options: [{ label: "Independent", score: 3 }, { label: "Minimal Assist", score: 2 }, { label: "Moderate Assist", score: 1 }, { label: "Unable", score: 0 }] },
+          { name: "Sitting Balance", options: [{ label: "Independent", score: 3 }, { label: "Minimal Assist", score: 2 }, { label: "Moderate Assist", score: 1 }, { label: "Unable", score: 0 }] }
+        ]
+      },
+      four: {
+        name: "FOUR Score",
+        categories: [
+          { name: "Eye Response", options: [{ label: "Eyelids open, tracking/blinking to command", score: 4 }, { label: "Eyelids open but not tracking", score: 3 }, { label: "Eyelids closed but open to loud voice", score: 2 }, { label: "Eyelids closed but open to pain", score: 1 }, { label: "Eyelids remain closed with pain", score: 0 }] },
+          { name: "Motor Response", options: [{ label: "Thumbs-up, fist, or peace sign", score: 4 }, { label: "Localizing to pain", score: 3 }, { label: "Flexion response to pain", score: 2 }, { label: "Extension response to pain", score: 1 }, { label: "No response to pain or generalized myoclonus status", score: 0 }] },
+          { name: "Brainstem Reflexes", options: [{ label: "Pupil and corneal reflexes present", score: 4 }, { label: "One pupil wide and fixed", score: 3 }, { label: "Pupil or corneal reflexes absent", score: 2 }, { label: "Pupil and corneal reflexes absent", score: 1 }, { label: "Absent pupil, corneal, and cough reflex", score: 0 }] },
+          { name: "Respiration", options: [{ label: "Not intubated, regular breathing pattern", score: 4 }, { label: "Not intubated, Cheyne-Stokes breathing pattern", score: 3 }, { label: "Not intubated, irregular breathing", score: 2 }, { label: "Breathes above ventilator rate", score: 1 }, { label: "Breathes at ventilator rate or apnea", score: 0 }] }
+        ]
+      },
+      cpot: {
+        name: "CPOT (Critical-Care Pain Observation Tool)",
+        categories: [
+          { name: "Facial Expression", options: [{ label: "Relaxed, neutral", score: 0 }, { label: "Tense (frowning, brow lowering)", score: 1 }, { label: "Grimacing (all above plus eyelid tightly closed)", score: 2 }] },
+          { name: "Body Movements", options: [{ label: "Absence of movements", score: 0 }, { label: "Protection (slow, cautious movements)", score: 1 }, { label: "Restlessness (pulling tubes, thrashing)", score: 2 }] },
+          { name: "Muscle Tension", options: [{ label: "Relaxed (no resistance to passive movements)", score: 0 }, { label: "Tense, rigid (resistance to passive movements)", score: 1 }, { label: "Very tense or rigid (strong resistance)", score: 2 }] },
+          { name: "Compliance with Ventilator (or Vocalization)", options: [{ label: "Tolerating ventilator / Normal talk", score: 0 }, { label: "Coughing but tolerating / Sighing, moaning", score: 1 }, { label: "Fighting ventilator / Crying out, sobbing", score: 2 }] }
+        ]
+      },
+      flacc: {
+        name: "FLACC Pain Scale",
+        categories: [
+          { name: "Face", options: [{ label: "No particular expression or smile", score: 0 }, { label: "Occasional grimace or frown, withdrawn, disinterested", score: 1 }, { label: "Frequent to constant quivering chin, clenched jaw", score: 2 }] },
+          { name: "Legs", options: [{ label: "Normal position or relaxed", score: 0 }, { label: "Uneasy, restless, tense", score: 1 }, { label: "Kicking, or legs drawn up", score: 2 }] },
+          { name: "Activity", options: [{ label: "Lying quietly, normal position, moves easily", score: 0 }, { label: "Squirming, shifting back and forth, tense", score: 1 }, { label: "Arched, rigid or jerking", score: 2 }] },
+          { name: "Cry", options: [{ label: "No cry (awake or asleep)", score: 0 }, { label: "Moans or whimpers; occasional complaint", score: 1 }, { label: "Crying steadily, screams or sobs, frequent complaint", score: 2 }] },
+          { name: "Consolability", options: [{ label: "Content, relaxed", score: 0 }, { label: "Reassured by occasional touching, hugging or being talked to, distractible", score: 1 }, { label: "Difficult to console or comfort", score: 2 }] }
+        ]
+      },
+      apache: {
+        name: "APACHE II (Simplified)",
+        categories: [
+          { name: "Age", options: [{ label: "< 44", score: 0 }, { label: "45-54", score: 2 }, { label: "55-64", score: 3 }, { label: "65-74", score: 5 }, { label: "> 75", score: 6 }] },
+          { name: "History of Severe Organ Failure", options: [{ label: "None", score: 0 }, { label: "Emergency Surgery / Non-operative", score: 5 }, { label: "Elective Surgery", score: 2 }] },
+          { name: "Temperature (°C)", options: [{ label: "36-38.4", score: 0 }, { label: "38.5-38.9", score: 1 }, { label: "34-35.9", score: 1 }, { label: "32-33.9", score: 2 }, { label: "30-31.9", score: 3 }, { label: "> 39 or < 30", score: 4 }] },
+          { name: "Mean Arterial Pressure (mmHg)", options: [{ label: "70-109", score: 0 }, { label: "110-129", score: 2 }, { label: "50-69", score: 2 }, { label: "130-159", score: 3 }, { label: "> 160 or < 49", score: 4 }] },
+          { name: "Heart Rate", options: [{ label: "70-109", score: 0 }, { label: "110-139", score: 2 }, { label: "55-69", score: 2 }, { label: "140-179", score: 3 }, { label: "40-54", score: 3 }, { label: "> 180 or < 39", score: 4 }] }
+        ]
+      },
+      start: {
+        title: "Simple Triage and Rapid Treatment",
+        back: "Back to previous step",
+        startNew: "Start New Triage",
+        categoryLabel: "Triage Category",
+        categories: {
+          MINOR: { label: "MINOR", desc: "Green Tag: Minor injuries, can wait for treatment." },
+          DELAYED: { label: "DELAYED", desc: "Yellow Tag: Serious but non-life-threatening injuries." },
+          IMMEDIATE: { label: "IMMEDIATE", desc: "Red Tag: Life-threatening injuries, requires immediate intervention." },
+          DECEASED: { label: "DECEASED", desc: "Black Tag: Deceased or injuries incompatible with life." }
+        },
+        steps: {
+          walking: { question: "Can the patient walk?", options: [{ label: "Yes", result: 'MINOR' }, { label: "No", nextStep: 'breathing' }] },
+          breathing: { question: "Is the patient breathing?", options: [{ label: "Yes", nextStep: 'respiratory_rate' }, { label: "No", nextStep: 'open_airway' }] },
+          open_airway: { question: "Open airway. Is the patient breathing now?", options: [{ label: "Yes", result: 'IMMEDIATE' }, { label: "No", result: 'DECEASED' }] },
+          respiratory_rate: { question: "Respiratory Rate?", options: [{ label: "> 30 / min", result: 'IMMEDIATE' }, { label: "< 30 / min", nextStep: 'perfusion' }] },
+          perfusion: { question: "Perfusion (Radial Pulse or Capillary Refill)?", options: [{ label: "Pulse Absent / Cap Refill > 2s", result: 'IMMEDIATE' }, { label: "Pulse Present / Cap Refill < 2s", nextStep: 'mental_status' }] },
+          mental_status: { question: "Mental Status (Follows simple commands)?", options: [{ label: "No", result: 'IMMEDIATE' }, { label: "Yes", result: 'DELAYED' }] }
+        }
+      },
+      rts: {
+        title: "Revised Trauma Score",
+        survivalProb: "Survival Probability",
+        categories: [
+          { name: "GCS Score", options: [{ label: "13-15", score: 4 }, { label: "9-12", score: 3 }, { label: "6-8", score: 2 }, { label: "4-5", score: 1 }, { label: "3", score: 0 }] },
+          { name: "Systolic BP (mmHg)", options: [{ label: "> 89", score: 4 }, { label: "76-89", score: 3 }, { label: "50-75", score: 2 }, { label: "1-49", score: 1 }, { label: "0", score: 0 }] },
+          { name: "Respiratory Rate", options: [{ label: "10-29", score: 4 }, { label: "> 29", score: 3 }, { label: "6-9", score: 2 }, { label: "1-5", score: 1 }, { label: "0", score: 0 }] }
+        ]
+      }
     }
   },
   ar: {
@@ -89,12 +182,28 @@ export const medicalData = {
       { poison: "الباراسيتامول", antidote: "ن-أسيتيل سيستين" },
       { poison: "الديجوكسين", antidote: "ديجيبايند" },
       { poison: "حاصرات بيتا", antidote: "جلوكاجون" },
-      { poison: "حاصرات قنوات الكالسيوم", antidote: "كالسيوم/جلوكاجون" },
       { poison: "الوارفارين", antidote: "فيتامين ك / FFP" },
       { poison: "الفوسفات العضوي", antidote: "أتروبين / براليدوكسيم" },
       { poison: "الحديد", antidote: "ديفيروكسامين" },
       { poison: "الميثانول/إيثيلين جليكول", antidote: "فومبيزول / إيثانول" }
     ],
+    labValues: {
+      hematology: [
+        { item: "الهيموجلوبين", male: "13.5-17.5 جم/ديسيلتر", female: "12.0-15.5 جم/ديسيلتر" },
+        { item: "خلايا الدم البيضاء", range: "4,500-11,000 /ميكرولتر" },
+        { item: "الصفائح الدموية", range: "150,000-450,000 /ميكرولتر" },
+        { item: "الهيماتوكريت", male: "41-50%", female: "36-44%" }
+      ],
+      chemistry: [
+        { item: "الصوديوم", range: "135-145 ميكرو مكافئ/لتر" },
+        { item: "البوتاسيوم", range: "3.5-5.0 ميكرو مكافئ/لتر" },
+        { item: "الكلوريد", range: "98-107 ميكرو مكافئ/لتر" },
+        { item: "البيكربونات", range: "22-28 ميكرو مكافئ/لتر" },
+        { item: "نيتروجين يوريا الدم", range: "7-20 مجم/ديسيلتر" },
+        { item: "الكرياتينين", range: "0.6-1.2 مجم/ديسيلتر" },
+        { item: "الجلوكوز (صائم)", range: "70-100 مجم/ديسيلتر" }
+      ]
+    },
     calculators: {
       gcs: {
         name: "مقياس غلاسكو للغيبوبة (GCS)",
@@ -187,133 +296,6 @@ export const medicalData = {
           { name: "معدل التنفس", options: [{ label: "10-29", score: 4 }, { label: "> 29", score: 3 }, { label: "6-9", score: 2 }, { label: "1-5", score: 1 }, { label: "0", score: 0 }] }
         ]
       }
-    },
-    labValues: {
-      hematology: [
-        { item: "الهيموجلوبين", male: "13.5-17.5 جم/ديسيلتر", female: "12.0-15.5 جم/ديسيلتر" },
-        { item: "خلايا الدم البيضاء", range: "4,500-11,000 /ميكرولتر" },
-        { item: "الصفائح الدموية", range: "150,000-450,000 /ميكرولتر" },
-        { item: "الهيماتوكريت", male: "41-50%", female: "36-44%" }
-      ],
-      chemistry: [
-        { item: "الصوديوم", range: "135-145 ميكرو مكافئ/لتر" },
-        { item: "البوتاسيوم", range: "3.5-5.0 ميكرو مكافئ/لتر" },
-        { item: "الكلوريد", range: "98-107 ميكرو مكافئ/لتر" },
-        { item: "البيكربونات", range: "22-28 ميكرو مكافئ/لتر" },
-        { item: "نيتروجين يوريا الدم", range: "7-20 مجم/ديسيلتر" },
-        { item: "الكرياتينين", range: "0.6-1.2 مجم/ديسيلتر" },
-        { item: "الجلوكوز (صائم)", range: "70-100 مجم/ديسيلتر" }
-      ]
     }
-  },
-  calculators: {
-    gcs: {
-      name: "GCS (Glasgow Coma Scale)",
-      categories: [
-        { name: "Eye Opening", options: [{ label: "Spontaneous", score: 4 }, { label: "To Speech", score: 3 }, { label: "To Pain", score: 2 }, { label: "None", score: 1 }] },
-        { name: "Verbal Response", options: [{ label: "Oriented", score: 5 }, { label: "Confused", score: 4 }, { label: "Inappropriate Words", score: 3 }, { label: "Incomprehensible Sounds", score: 2 }, { label: "None", score: 1 }] },
-        { name: "Motor Response", options: [{ label: "Obeys Commands", score: 6 }, { label: "Localizes Pain", score: 5 }, { label: "Withdraws from Pain", score: 4 }, { label: "Abnormal Flexion", score: 3 }, { label: "Abnormal Extension", score: 2 }, { label: "None", score: 1 }] }
-      ]
-    },
-    rass: {
-      name: "RASS (Richmond Agitation-Sedation Scale)",
-      options: [
-        { label: "+4 Combative", score: 4 }, { label: "+3 Very Agitated", score: 3 }, { label: "+2 Agitated", score: 2 }, { label: "+1 Restless", score: 1 },
-        { label: "0 Alert and Calm", score: 0 },
-        { label: "-1 Drowsy", score: -1 }, { label: "-2 Light Sedation", score: -2 }, { label: "-3 Moderate Sedation", score: -3 }, { label: "-4 Deep Sedation", score: -4 }, { label: "-5 Unarousable", score: -5 }
-      ]
-    },
-    ccf: {
-      name: "CCF Scale (Critical Care Functional)",
-      categories: [
-        { name: "Rolling", options: [{ label: "Independent", score: 3 }, { label: "Minimal Assist", score: 2 }, { label: "Moderate Assist", score: 1 }, { label: "Unable", score: 0 }] },
-        { name: "Supine to Sit", options: [{ label: "Independent", score: 3 }, { label: "Minimal Assist", score: 2 }, { label: "Moderate Assist", score: 1 }, { label: "Unable", score: 0 }] },
-        { name: "Sitting Balance", options: [{ label: "Independent", score: 3 }, { label: "Minimal Assist", score: 2 }, { label: "Moderate Assist", score: 1 }, { label: "Unable", score: 0 }] }
-      ]
-    },
-    four: {
-      name: "FOUR Score",
-      categories: [
-        { name: "Eye Response", options: [{ label: "Eyelids open, tracking/blinking to command", score: 4 }, { label: "Eyelids open but not tracking", score: 3 }, { label: "Eyelids closed but open to loud voice", score: 2 }, { label: "Eyelids closed but open to pain", score: 1 }, { label: "Eyelids remain closed with pain", score: 0 }] },
-        { name: "Motor Response", options: [{ label: "Thumbs-up, fist, or peace sign", score: 4 }, { label: "Localizing to pain", score: 3 }, { label: "Flexion response to pain", score: 2 }, { label: "Extension response to pain", score: 1 }, { label: "No response to pain or generalized myoclonus status", score: 0 }] },
-        { name: "Brainstem Reflexes", options: [{ label: "Pupil and corneal reflexes present", score: 4 }, { label: "One pupil wide and fixed", score: 3 }, { label: "Pupil or corneal reflexes absent", score: 2 }, { label: "Pupil and corneal reflexes absent", score: 1 }, { label: "Absent pupil, corneal, and cough reflex", score: 0 }] },
-        { name: "Respiration", options: [{ label: "Not intubated, regular breathing pattern", score: 4 }, { label: "Not intubated, Cheyne-Stokes breathing pattern", score: 3 }, { label: "Not intubated, irregular breathing", score: 2 }, { label: "Breathes above ventilator rate", score: 1 }, { label: "Breathes at ventilator rate or apnea", score: 0 }] }
-      ]
-    },
-    cpot: {
-      name: "CPOT (Critical-Care Pain Observation Tool)",
-      categories: [
-        { name: "Facial Expression", options: [{ label: "Relaxed, neutral", score: 0 }, { label: "Tense (frowning, brow lowering)", score: 1 }, { label: "Grimacing (all above plus eyelid tightly closed)", score: 2 }] },
-        { name: "Body Movements", options: [{ label: "Absence of movements", score: 0 }, { label: "Protection (slow, cautious movements)", score: 1 }, { label: "Restlessness (pulling tubes, thrashing)", score: 2 }] },
-        { name: "Muscle Tension", options: [{ label: "Relaxed (no resistance to passive movements)", score: 0 }, { label: "Tense, rigid (resistance to passive movements)", score: 1 }, { label: "Very tense or rigid (strong resistance)", score: 2 }] },
-        { name: "Compliance with Ventilator (or Vocalization)", options: [{ label: "Tolerating ventilator / Normal talk", score: 0 }, { label: "Coughing but tolerating / Sighing, moaning", score: 1 }, { label: "Fighting ventilator / Crying out, sobbing", score: 2 }] }
-      ]
-    },
-    flacc: {
-      name: "FLACC Pain Scale",
-      categories: [
-        { name: "Face", options: [{ label: "No particular expression or smile", score: 0 }, { label: "Occasional grimace or frown, withdrawn, disinterested", score: 1 }, { label: "Frequent to constant quivering chin, clenched jaw", score: 2 }] },
-        { name: "Legs", options: [{ label: "Normal position or relaxed", score: 0 }, { label: "Uneasy, restless, tense", score: 1 }, { label: "Kicking, or legs drawn up", score: 2 }] },
-        { name: "Activity", options: [{ label: "Lying quietly, normal position, moves easily", score: 0 }, { label: "Squirming, shifting back and forth, tense", score: 1 }, { label: "Arched, rigid or jerking", score: 2 }] },
-        { name: "Cry", options: [{ label: "No cry (awake or asleep)", score: 0 }, { label: "Moans or whimpers; occasional complaint", score: 1 }, { label: "Crying steadily, screams or sobs, frequent complaint", score: 2 }] },
-        { name: "Consolability", options: [{ label: "Content, relaxed", score: 0 }, { label: "Reassured by occasional touching, hugging or being talked to, distractible", score: 1 }, { label: "Difficult to console or comfort", score: 2 }] }
-      ]
-    },
-    apache: {
-      name: "APACHE II (Simplified)",
-      categories: [
-        { name: "Age", options: [{ label: "< 44", score: 0 }, { label: "45-54", score: 2 }, { label: "55-64", score: 3 }, { label: "65-74", score: 5 }, { label: "> 75", score: 6 }] },
-        { name: "History of Severe Organ Failure", options: [{ label: "None", score: 0 }, { label: "Emergency Surgery / Non-operative", score: 5 }, { label: "Elective Surgery", score: 2 }] },
-        { name: "Temperature (°C)", options: [{ label: "36-38.4", score: 0 }, { label: "38.5-38.9", score: 1 }, { label: "34-35.9", score: 1 }, { label: "32-33.9", score: 2 }, { label: "30-31.9", score: 3 }, { label: "> 39 or < 30", score: 4 }] },
-        { name: "Mean Arterial Pressure (mmHg)", options: [{ label: "70-109", score: 0 }, { label: "110-129", score: 2 }, { label: "50-69", score: 2 }, { label: "130-159", score: 3 }, { label: "> 160 or < 49", score: 4 }] },
-        { name: "Heart Rate", options: [{ label: "70-109", score: 0 }, { label: "110-139", score: 2 }, { label: "55-69", score: 2 }, { label: "140-179", score: 3 }, { label: "40-54", score: 3 }, { label: "> 180 or < 39", score: 4 }] }
-      ]
-    },
-    start: {
-      title: "Simple Triage and Rapid Treatment",
-      back: "Back to previous step",
-      startNew: "Start New Triage",
-      categoryLabel: "Triage Category",
-      categories: {
-        MINOR: { label: "MINOR", desc: "Green Tag: Minor injuries, can wait for treatment." },
-        DELAYED: { label: "DELAYED", desc: "Yellow Tag: Serious but non-life-threatening injuries." },
-        IMMEDIATE: { label: "IMMEDIATE", desc: "Red Tag: Life-threatening injuries, requires immediate intervention." },
-        DECEASED: { label: "DECEASED", desc: "Black Tag: Deceased or injuries incompatible with life." }
-      },
-      steps: {
-        walking: { question: "Can the patient walk?", options: [{ label: "Yes", result: 'MINOR' }, { label: "No", nextStep: 'breathing' }] },
-        breathing: { question: "Is the patient breathing?", options: [{ label: "Yes", nextStep: 'respiratory_rate' }, { label: "No", nextStep: 'open_airway' }] },
-        open_airway: { question: "Open airway. Is the patient breathing now?", options: [{ label: "Yes", result: 'IMMEDIATE' }, { label: "No", result: 'DECEASED' }] },
-        respiratory_rate: { question: "Respiratory Rate?", options: [{ label: "> 30 / min", result: 'IMMEDIATE' }, { label: "< 30 / min", nextStep: 'perfusion' }] },
-        perfusion: { question: "Perfusion (Radial Pulse or Capillary Refill)?", options: [{ label: "Pulse Absent / Cap Refill > 2s", result: 'IMMEDIATE' }, { label: "Pulse Present / Cap Refill < 2s", nextStep: 'mental_status' }] },
-        mental_status: { question: "Mental Status (Follows simple commands)?", options: [{ label: "No", result: 'IMMEDIATE' }, { label: "Yes", result: 'DELAYED' }] }
-      }
-    },
-    rts: {
-      title: "Revised Trauma Score",
-      survivalProb: "Survival Probability",
-      categories: [
-        { name: "GCS Score", options: [{ label: "13-15", score: 4 }, { label: "9-12", score: 3 }, { label: "6-8", score: 2 }, { label: "4-5", score: 1 }, { label: "3", score: 0 }] },
-        { name: "Systolic BP (mmHg)", options: [{ label: "> 89", score: 4 }, { label: "76-89", score: 3 }, { label: "50-75", score: 2 }, { label: "1-49", score: 1 }, { label: "0", score: 0 }] },
-        { name: "Respiratory Rate", options: [{ label: "10-29", score: 4 }, { label: "> 29", score: 3 }, { label: "6-9", score: 2 }, { label: "1-5", score: 1 }, { label: "0", score: 0 }] }
-      ]
-    }
-  },
-  labValues: {
-    hematology: [
-      { item: "Hemoglobin", male: "13.5-17.5 g/dL", female: "12.0-15.5 g/dL" },
-      { item: "WBC", range: "4,500-11,000 /µL" },
-      { item: "Platelets", range: "150,000-450,000 /µL" },
-      { item: "Hematocrit", male: "41-50%", female: "36-44%" }
-    ],
-    chemistry: [
-      { item: "Sodium", range: "135-145 mEq/L" },
-      { item: "Potassium", range: "3.5-5.0 mEq/L" },
-      { item: "Chloride", range: "98-107 mEq/L" },
-      { item: "Bicarbonate", range: "22-28 mEq/L" },
-      { item: "BUN", range: "7-20 mg/dL" },
-      { item: "Creatinine", range: "0.6-1.2 mg/dL" },
-      { item: "Glucose (Fasting)", range: "70-100 mg/dL" }
-    ]
   }
 };

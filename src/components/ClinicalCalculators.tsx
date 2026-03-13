@@ -145,19 +145,26 @@ const ClinicalCalculators: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-4"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[110] bg-black/60 backdrop-blur-md flex items-end sm:items-center justify-center p-4"
           >
             <motion.div
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 100, opacity: 0 }}
-              className="bg-white dark:bg-zinc-900 w-full max-w-lg rounded-[40px] p-8 max-h-[90vh] overflow-y-auto custom-scrollbar"
+              initial={{ y: "100%", opacity: 0, scale: 0.95 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              exit={{ y: "100%", opacity: 0, scale: 0.95 }}
+              transition={{ 
+                type: "spring",
+                damping: 25,
+                stiffness: 200,
+                mass: 0.8
+              }}
+              className="bg-white dark:bg-zinc-900 w-full max-w-lg rounded-[40px] p-8 max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl"
             >
               <div className="flex justify-between items-center mb-8 sticky top-0 bg-white dark:bg-zinc-900 z-10 py-2">
                 <h2 className="text-2xl font-black">{calculatorList.find(c => c.id === selected)?.name}</h2>
                 <button 
                   onClick={() => setSelected(null)} 
-                  className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-xl text-zinc-500 font-bold"
+                  className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-xl text-zinc-500 font-bold hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
                 >
                   Close
                 </button>
@@ -167,7 +174,7 @@ const ClinicalCalculators: React.FC = () => {
               
               <button 
                 onClick={() => setSelected(null)}
-                className="w-full py-4 mt-8 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-2xl font-bold transition-all active:scale-95"
+                className="w-full py-4 mt-8 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-2xl font-bold transition-all active:scale-95 shadow-lg"
               >
                 Done
               </button>
