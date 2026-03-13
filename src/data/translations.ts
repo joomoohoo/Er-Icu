@@ -69,6 +69,10 @@ export const translations = {
     calculatedRts: "Calculated RTS",
     selectParams: "Select all parameters to calculate score",
     lowerScoresSeverity: "Lower scores indicate higher severity",
+    aiAssistant: "Medical AI Assistant",
+    aiPlaceholder: "Ask anything about ER/ICU care...",
+    aiDisclaimer: "AI-generated content. Verify with clinical protocols.",
+    aiThinking: "Thinking...",
   },
   ar: {
     welcome: "مرحباً بك في دليل الطوارئ والعناية المركزة 🩺",
@@ -140,5 +144,9 @@ export const translations = {
     calculatedRts: "مقياس RTS المحسوب",
     selectParams: "اختر جميع المعايير لحساب النتيجة",
     lowerScoresSeverity: "الدرجات الأقل تشير إلى خطورة أعلى",
+    aiAssistant: "المساعد الطبي الذكي",
+    aiPlaceholder: "اسأل أي شيء عن رعاية الطوارئ والعناية المركزة...",
+    aiDisclaimer: "محتوى تم إنشاؤه بواسطة الذكاء الاصطناعي. تحقق من البروتوكولات السريرية.",
+    aiThinking: "جاري التفكير...",
   }
 };

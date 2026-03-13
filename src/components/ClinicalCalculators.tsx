@@ -8,20 +8,20 @@ import STARTScale from './STARTScale';
 import RevisedTraumaScore from './RevisedTraumaScore';
 
 const ClinicalCalculators: React.FC = () => {
-  const { t } = useAppContext();
+  const { t, lang } = useAppContext();
   const [selected, setSelected] = useState<string | null>(null);
   const [scores, setScores] = useState<Record<string, number>>({});
 
   const calculatorList = [
     { id: 'start', name: t.startScale, icon: AlertCircle, color: 'bg-amber-500', range: 'Triage' },
     { id: 'rts', name: t.rts, icon: Activity, color: 'bg-rose-500', range: '0-7.8408' },
-    { id: 'gcs', name: 'GCS (Glasgow Coma Scale)', data: medicalData.calculators.gcs },
-    { id: 'rass', name: 'RASS (Sedation Scale)', data: medicalData.calculators.rass },
-    { id: 'ccf', name: 'CCF Scale (Functional)', data: medicalData.calculators.ccf },
-    { id: 'four', name: 'FOUR Score', data: medicalData.calculators.four, range: '0-16' },
-    { id: 'cpot', name: 'CPOT (Pain Scale)', data: medicalData.calculators.cpot, range: '0-8' },
-    { id: 'flacc', name: 'FLACC (Pain Scale)', data: medicalData.calculators.flacc, range: '0-10' },
-    { id: 'apache', name: 'APACHE II', data: medicalData.calculators.apache, range: 'Complexity High' }
+    { id: 'gcs', name: 'GCS (Glasgow Coma Scale)', data: (medicalData[lang] as any).calculators.gcs },
+    { id: 'rass', name: 'RASS (Sedation Scale)', data: (medicalData[lang] as any).calculators.rass },
+    { id: 'ccf', name: 'CCF Scale (Functional)', data: (medicalData[lang] as any).calculators.ccf },
+    { id: 'four', name: 'FOUR Score', data: (medicalData[lang] as any).calculators.four, range: '0-16' },
+    { id: 'cpot', name: 'CPOT (Pain Scale)', data: (medicalData[lang] as any).calculators.cpot, range: '0-8' },
+    { id: 'flacc', name: 'FLACC (Pain Scale)', data: (medicalData[lang] as any).calculators.flacc, range: '0-10' },
+    { id: 'apache', name: 'APACHE II', data: (medicalData[lang] as any).calculators.apache, range: 'Complexity High' }
   ];
 
   const handleScoreSelect = (category: string, score: number) => {

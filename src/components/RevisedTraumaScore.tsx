@@ -6,7 +6,7 @@ import { medicalData } from '../data/medicalData';
 
 const RevisedTraumaScore: React.FC = () => {
   const { t, lang } = useAppContext();
-  const data = medicalData[lang].calculators.rts;
+  const data = (medicalData[lang] as any).calculators.rts;
   const [gcs, setGcs] = useState<number | null>(null);
   const [sbp, setSbp] = useState<number | null>(null);
   const [rr, setRr] = useState<number | null>(null);
