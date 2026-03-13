@@ -18,7 +18,7 @@ interface Step {
 
 const STARTScale: React.FC = () => {
   const { lang } = useAppContext();
-  const data = (medicalData[lang] as any).calculators.start;
+  const data = medicalData[lang].calculators.start;
   const [currentStepId, setCurrentStepId] = useState('walking');
   const [history, setHistory] = useState<string[]>([]);
   const [result, setResult] = useState<TriageCategory>(null);

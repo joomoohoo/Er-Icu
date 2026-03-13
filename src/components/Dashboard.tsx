@@ -158,13 +158,13 @@ const Dashboard: React.FC = () => {
             </div>
             <div>
               <h1 className="text-xl font-black tracking-tight">ER & ICU</h1>
-              <p className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Medical Guide</p>
+              <p className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Guide Pro</p>
             </div>
           </div>
           <div className="flex gap-2 relative">
             <button 
               onClick={() => setShowPalette(!showPalette)}
-              className="p-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-md rounded-2xl border border-white/20 dark:border-zinc-700/50 active:scale-90 transition-transform"
+              className="p-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-md rounded-2xl border border-white/20 dark:border-zinc-700/50"
             >
               <Palette className="w-5 h-5 text-zinc-500" />
             </button>
@@ -173,7 +173,6 @@ const Dashboard: React.FC = () => {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ type: "spring", damping: 20, stiffness: 300 }}
                 className="absolute top-full mt-2 right-0 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-2xl border border-white/20 dark:border-zinc-800/50 rounded-2xl p-2 shadow-2xl flex gap-2 z-50"
               >
                 {(Object.keys(colorSchemes) as ColorScheme[]).map((scheme) => (
@@ -194,7 +193,7 @@ const Dashboard: React.FC = () => {
 
             <button 
               onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
-              className="p-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-md rounded-2xl border border-white/20 dark:border-zinc-700/50 active:scale-90 transition-transform"
+              className="p-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-md rounded-2xl border border-white/20 dark:border-zinc-700/50"
             >
               <Languages className="w-5 h-5 text-zinc-500" />
             </button>
@@ -204,13 +203,10 @@ const Dashboard: React.FC = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeView}
-            initial={{ opacity: 0, y: 15, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -15, scale: 0.98 }}
-            transition={{ 
-              duration: 0.4, 
-              ease: [0.23, 1, 0.32, 1] 
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {renderView()}
           </motion.div>
@@ -237,6 +233,12 @@ const Dashboard: React.FC = () => {
             className={`flex-1 py-4 rounded-2xl flex flex-col items-center gap-1 transition-all ${activeView === 'drugs' ? 'text-primary bg-primary/10' : 'text-zinc-400'}`}
           >
             <Pill className="w-6 h-6" />
+          </button>
+          <button 
+            onClick={() => setActiveView('scenarios')}
+            className={`flex-1 py-4 rounded-2xl flex flex-col items-center gap-1 transition-all ${activeView === 'scenarios' ? 'text-primary bg-primary/10' : 'text-zinc-400'}`}
+          >
+            <ShieldAlert className="w-6 h-6" />
           </button>
         </div>
       </div>

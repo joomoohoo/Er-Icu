@@ -15,13 +15,13 @@ const ClinicalCalculators: React.FC = () => {
   const calculatorList = [
     { id: 'start', name: t.startScale, icon: AlertCircle, color: 'bg-amber-500', range: 'Triage' },
     { id: 'rts', name: t.rts, icon: Activity, color: 'bg-rose-500', range: '0-7.8408' },
-    { id: 'gcs', name: 'GCS (Glasgow Coma Scale)', data: (medicalData[lang] as any).calculators.gcs },
-    { id: 'rass', name: 'RASS (Sedation Scale)', data: (medicalData[lang] as any).calculators.rass },
-    { id: 'ccf', name: 'CCF Scale (Functional)', data: (medicalData[lang] as any).calculators.ccf },
-    { id: 'four', name: 'FOUR Score', data: (medicalData[lang] as any).calculators.four, range: '0-16' },
-    { id: 'cpot', name: 'CPOT (Pain Scale)', data: (medicalData[lang] as any).calculators.cpot, range: '0-8' },
-    { id: 'flacc', name: 'FLACC (Pain Scale)', data: (medicalData[lang] as any).calculators.flacc, range: '0-10' },
-    { id: 'apache', name: 'APACHE II', data: (medicalData[lang] as any).calculators.apache, range: 'Complexity High' }
+    { id: 'gcs', name: medicalData[lang].calculators.gcs.name, data: medicalData[lang].calculators.gcs },
+    { id: 'rass', name: medicalData[lang].calculators.rass.name, data: medicalData[lang].calculators.rass },
+    { id: 'ccf', name: medicalData[lang].calculators.ccf.name, data: medicalData[lang].calculators.ccf },
+    { id: 'four', name: medicalData[lang].calculators.four.name, data: medicalData[lang].calculators.four, range: '0-16' },
+    { id: 'cpot', name: medicalData[lang].calculators.cpot.name, data: medicalData[lang].calculators.cpot, range: '0-8' },
+    { id: 'flacc', name: medicalData[lang].calculators.flacc.name, data: medicalData[lang].calculators.flacc, range: '0-10' },
+    { id: 'apache', name: medicalData[lang].calculators.apache.name, data: medicalData[lang].calculators.apache, range: 'Complexity High' }
   ];
 
   const handleScoreSelect = (category: string, score: number) => {
@@ -145,26 +145,19 @@ const ClinicalCalculators: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[110] bg-black/60 backdrop-blur-md flex items-end sm:items-center justify-center p-4"
+            className="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-4"
           >
             <motion.div
-              initial={{ y: "100%", opacity: 0, scale: 0.95 }}
-              animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: "100%", opacity: 0, scale: 0.95 }}
-              transition={{ 
-                type: "spring",
-                damping: 25,
-                stiffness: 200,
-                mass: 0.8
-              }}
-              className="bg-white dark:bg-zinc-900 w-full max-w-lg rounded-[40px] p-8 max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl"
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 100, opacity: 0 }}
+              className="bg-white dark:bg-zinc-900 w-full max-w-lg rounded-[40px] p-8 max-h-[90vh] overflow-y-auto custom-scrollbar"
             >
               <div className="flex justify-between items-center mb-8 sticky top-0 bg-white dark:bg-zinc-900 z-10 py-2">
                 <h2 className="text-2xl font-black">{calculatorList.find(c => c.id === selected)?.name}</h2>
                 <button 
                   onClick={() => setSelected(null)} 
-                  className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-xl text-zinc-500 font-bold hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+                  className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-xl text-zinc-500 font-bold"
                 >
                   Close
                 </button>
@@ -174,7 +167,7 @@ const ClinicalCalculators: React.FC = () => {
               
               <button 
                 onClick={() => setSelected(null)}
-                className="w-full py-4 mt-8 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-2xl font-bold transition-all active:scale-95 shadow-lg"
+                className="w-full py-4 mt-8 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-2xl font-bold transition-all active:scale-95"
               >
                 Done
               </button>
