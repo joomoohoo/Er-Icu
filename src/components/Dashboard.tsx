@@ -5,7 +5,7 @@ import {
   LayoutGrid, Calculator, Activity, Pill, 
   ShieldAlert, ClipboardCheck, Wind, Timer, 
   TestTube, Search, Moon, Sun, Languages,
-  MessageCircle, HeartPulse, Droplets, Palette, Bot, Sparkles, MessageSquare
+  MessageCircle, HeartPulse, Droplets, Palette
 } from 'lucide-react';
 
 import ECGMonitor from './ECGMonitor';
@@ -18,7 +18,6 @@ import ABGInterpreter from './ABGInterpreter';
 import ClinicalCalculators from './ClinicalCalculators';
 import EmergencyScenarios from './EmergencyScenarios';
 import LabValues from './LabValues';
-import AIAssistant from './AIAssistant';
 
 const Dashboard: React.FC = () => {
   const { t, lang, setLang, theme, colorScheme, setColorScheme } = useAppContext();
@@ -27,7 +26,6 @@ const Dashboard: React.FC = () => {
   const [showPalette, setShowPalette] = useState(false);
 
   const menuItems = [
-    { id: 'ai', icon: Bot, label: t.aiAssistant, color: 'bg-primary', component: <AIAssistant /> },
     { id: 'calculators', icon: Calculator, label: t.calculators, color: 'bg-blue-500', component: <ClinicalCalculators /> },
     { id: 'ecg', icon: Activity, label: t.ecg, color: 'bg-emerald-500', component: <ECGMonitor /> },
     { id: 'drugs', icon: Pill, label: t.drugs, color: 'bg-purple-500', component: <DrugReference /> },
@@ -62,53 +60,6 @@ const Dashboard: React.FC = () => {
               />
             </div>
           </div>
-
-          {/* AI Assistant Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="relative group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-violet-500/20 blur-2xl opacity-50 group-hover:opacity-100 transition-opacity rounded-[32px]" />
-            <button
-              onClick={() => setActiveView('ai')}
-              className="relative w-full bg-white/40 dark:bg-zinc-900/40 backdrop-blur-xl border border-white/20 dark:border-zinc-800/50 p-8 rounded-[32px] flex flex-col md:flex-row items-center gap-8 shadow-2xl hover:shadow-primary/10 transition-all overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:scale-110 transition-transform -z-10">
-                <Bot className="w-48 h-48" />
-              </div>
-              
-              <div className="p-6 bg-primary rounded-[24px] text-white shadow-xl shadow-primary/30 group-hover:rotate-6 transition-transform">
-                <Sparkles className="w-10 h-10" />
-              </div>
-              
-              <div className="text-center md:text-left space-y-2">
-                <div className="flex items-center justify-center md:justify-start gap-2">
-                  <h2 className="text-2xl font-black text-zinc-900 dark:text-white">{t.aiAssistant}</h2>
-                  <span className="px-2 py-0.5 bg-amber-500 text-[10px] font-black text-white rounded-full uppercase tracking-widest">Beta</span>
-                </div>
-                <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 max-w-xs">
-                  {lang === 'en' 
-                    ? 'Instant clinical support for emergency protocols and ICU care.' 
-                    : 'دعم سريري فوري لبروتوكولات الطوارئ والعناية المركزة.'}
-                </p>
-                <div className="flex flex-wrap justify-center md:justify-start gap-2 pt-2">
-                  {(lang === 'en' ? ['ACLS', 'Triage', 'Dosage'] : ['ACLS', 'فرز', 'جرعات']).map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-primary/10 dark:bg-primary/20 rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="md:ml-auto">
-                <div className="p-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-2xl shadow-lg group-hover:translate-x-2 transition-transform">
-                  <MessageSquare className="w-6 h-6" />
-                </div>
-              </div>
-            </button>
-          </motion.div>
 
           {/* Grid Menu */}
           <motion.div 
@@ -164,23 +115,6 @@ const Dashboard: React.FC = () => {
               {t.contactDeveloper}
             </a>
           </div>
-
-          {/* Floating AI Button */}
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setActiveView('ai')}
-            className="fixed bottom-32 right-6 p-5 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 z-40 border-4 border-white dark:border-zinc-900"
-          >
-            <Bot className="w-8 h-8" />
-            <motion.div 
-              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="absolute inset-0 bg-white rounded-full -z-10"
-            />
-          </motion.button>
         </div>
       );
     }
@@ -291,12 +225,6 @@ const Dashboard: React.FC = () => {
             className={`flex-1 py-4 rounded-2xl flex flex-col items-center gap-1 transition-all ${activeView === 'home' ? 'text-primary bg-primary/10' : 'text-zinc-400'}`}
           >
             <LayoutGrid className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={() => setActiveView('ai')}
-            className={`flex-1 py-4 rounded-2xl flex flex-col items-center gap-1 transition-all ${activeView === 'ai' ? 'text-primary bg-primary/10' : 'text-zinc-400'}`}
-          >
-            <Bot className="w-6 h-6" />
           </button>
           <button 
             onClick={() => setActiveView('calculators')}
